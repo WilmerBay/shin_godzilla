@@ -1,7 +1,7 @@
 import java.sql.SQLOutput;
 
 public class Excercise_Math {
-
+//it works buddy
     public static void main(String[] args) {
         // Return the max value of numbers
         System.out.println(Math.abs(-25));
