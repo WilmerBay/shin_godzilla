@@ -1,6 +1,4 @@
-import java.sql.SQLOutput;
-
-public class Excercise_Math {
+public class Exercise_Math {
 //it works buddy
     public static void main(String[] args) {
         // Return the max value of numbers
