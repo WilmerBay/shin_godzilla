@@ -14,8 +14,19 @@ public class payRollCalculator {
         System.out.println("What is your pay rate?");
         // Display the employee's name and their gross pay.
         double payRate = scanner.nextDouble();
-        double grossPay = hoursWorked * payRate;
-        System.out.println(name + " Your gross pay is " + grossPay + " you're built different.");
+        double overTimeMultipler = 1.5;
+        double grossPay = 0;
+        if (hoursWorked > 8){
+            double regularPay = 8 * payRate;
+            double overtime = hoursWorked - 8;
+            double overtimePay = overtime * payRate * overTimeMultipler;
+            grossPay = regularPay + overtimePay;
+            System.out.println(name + " Your gross pay is " + grossPay + " you're built different with that OT.");
+        } else {
+            grossPay = hoursWorked * payRate;
+            System.out.println("Your gross pay is " + grossPay);
+        }
+
 
     }
 }
