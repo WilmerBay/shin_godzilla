@@ -2,15 +2,15 @@ import java.util.Scanner;
 
 public class basic_calculator {
     public static void main(String[] args) {
-        Scanner scanboi = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
 
         System.out.println("Enter a number: ");
-        double num1 = scanboi.nextDouble();
-        scanboi.nextLine();
+        double num1 = scanner.nextDouble();
+        scanner.nextLine();
         System.out.print("Enter another number: ");
-        double num2 = scanboi.nextDouble();
-        scanboi.nextLine();
+        double num2 = scanner.nextDouble();
+        scanner.nextLine();
 
 
 
