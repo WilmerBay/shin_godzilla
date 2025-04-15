@@ -91,7 +91,13 @@ public class friday_mini_exercise {
         }
         // 9. Character Class Check
         // Ask for a character class (input: "warrior" or "mage"). Print a different starting weapon for each.
-        System.out.println("Choose your class, are you warrior or mage?");
+        // System.out.println("Choose your class, are you 'warrior' or 'mage'?");
+        //10. Magic Number Guess
+        //Hardcode a secret number. Ask the player to guess. Tell them if they're correct or not.
+        int secretNum = 3;
+        System.out.println("Hey gamer, I'm thinking of a umber 1-10 can you guess what it is?");
+        int theirGuess = scanner.nextInt();
+
 
 
 
