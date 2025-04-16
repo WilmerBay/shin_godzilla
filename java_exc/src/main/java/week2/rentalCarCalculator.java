@@ -1,5 +1,6 @@
 package week2;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class rentalCarCalculator {
@@ -21,6 +22,7 @@ public class rentalCarCalculator {
         int age = age();
         scanner.nextLine();
         double totalCost = costCalculator (numberOfDays, tollTag, addGPS, roadside, age);
+        System.out.println("Your pickup date: " + pickupDate);
         System.out.println("your total cost is " + totalCost);
         System.out.println("toll charge: " + tollTag);
         System.out.println("GPS charge: " + addGPS);
