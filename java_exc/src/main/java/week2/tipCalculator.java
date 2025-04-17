@@ -21,11 +21,13 @@ public class tipCalculator {
         System.out.printf("Pay %.2f", totalWithPeople);
     }
     static double getBillAmount() {
+
         System.out.println("What is your bill amount? 00.00");
         double billAmount = scanner.nextDouble();
         return billAmount;
     }
     static double tipPercentageCalc(double billAmount) {
+
         System.out.println("How much would you like to tip? Type in decimal format eg:.25");
         double tipPercent = scanner.nextDouble();
         double total = (tipPercent * billAmount) + billAmount;
@@ -34,10 +36,12 @@ public class tipCalculator {
         return total;
     }
     static int howManyPeople () {
+
         System.out.println("How many people are you splitting the bill with?");
         return scanner.nextInt();
         }
     static double peopleCalc (double total, int howManyPeople) {
+
         if (howManyPeople > 1) {
             return total / howManyPeople;
         } else if (howManyPeople == 0) {
