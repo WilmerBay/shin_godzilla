@@ -11,7 +11,7 @@ public class temperatureConverter {
         double temp = getTemp();
         double convertedTemp = pathConversion(tempPath, temp);
         System.out.printf("Conversion complete: %.2f", convertedTemp);
-        scanner.close();
+        scanner.close(); // i always forget to close scanner, i think it goes here
     }
     static String tempPath() {
         System.out.println("Choose C for celsius or F for fahrenheit");
@@ -34,7 +34,7 @@ public class temperatureConverter {
             return celsius;
         } else {
             System.out.println("We broke it, I blame you");
-            return Double.NaN;
+            return Double.NaN; // i had to look up how to return something without a number
         }
     }
 }
