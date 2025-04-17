@@ -37,7 +37,6 @@ public class pauseDayMiniProjectCalculator {
             } else {
                 total = firstNumber / secondNumber;
             }
-
         } else {
             System.out.println("we broke it, good luck buddy");
         }return total;
