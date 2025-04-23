@@ -1,4 +1,5 @@
-import java.sql.SQLOutput;
+package Week1;
+
 import java.util.Scanner;
 
 public class friday_mini_exercise {

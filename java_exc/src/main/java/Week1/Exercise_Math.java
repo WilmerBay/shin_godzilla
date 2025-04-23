@@ -1,3 +1,5 @@
+package Week1;
+
 public class Exercise_Math {
 //it works buddy
     public static void main(String[] args) {

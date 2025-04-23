@@ -1,3 +1,5 @@
+package Week1;
+
 public class Operator_Excersises {
     public static void main(String[] args) {
         // 1. Create 3 variables: an int, a double, and a char. Print them.
