@@ -10,10 +10,10 @@ public class Tournament {
     private List<Round> rounds;
     private Team winner;
 
-    public void tournamentName(String name) {
+    public Tournament(String name) {
         this.name = name;
         this.teams = new ArrayList<>();
-        this.round = new ArrayList<>();
+        this.rounds = new ArrayList<>();
         this.winner = null;
     }
     public String getName() {
@@ -39,10 +39,5 @@ public class Tournament {
     public void startTournament() {
         System.out.println("Tournament started: " + name);
     }
-}
-
-
-
-
 }
 
