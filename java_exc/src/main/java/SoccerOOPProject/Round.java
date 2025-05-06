@@ -19,9 +19,19 @@ public class Round {
         matches.add(match);
     }
 
-    public void playAllMatches() {
+    public List<Team> playRound() {
+
+        List<Team> winners = new ArrayList<>();
+
+        System.out.println("\n=== Starting Round ===");
+
         for (Match match : matches) {
-            match.playMatch(); // placeholder logic
+            match.playMatch();
+            winners.add(match.getWinner());
         }
+
+        System.out.println("=== Round complete ===\n");
+
+        return winners;
     }
 }
