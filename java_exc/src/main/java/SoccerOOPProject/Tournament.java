@@ -37,7 +37,7 @@ public class Tournament {
     }
 
     public void startTournament() {
-        System.out.println("Tournament started: " + name);
+
     }
 }
 

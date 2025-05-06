@@ -31,9 +31,9 @@ public class Match {
 
     public void playMatch() {
 
-        Random random = new Random();
+        Random randomizer = new Random();
 
-        winner = random.nextBoolean() ? team1 : team2;
+        winner = randomizer.nextBoolean() ? team1 : team2;
 
         System.out.println("Match: " + team1.getName() + " vs " + team2.getName() +
                 " — Winner: " + winner.getName());
