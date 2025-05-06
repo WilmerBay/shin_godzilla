@@ -28,6 +28,6 @@ public class Match {
     }
 
     public void playMatch() {
-        this.winner = team1;
+
     }
 }
