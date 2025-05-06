@@ -43,11 +43,9 @@ public class Reservation {
         } else {
             basePrice = 124.00;
         }
-
         if (isWeekend) {
             basePrice = basePrice * 1.10;
         }
-
         return basePrice;
     }
 

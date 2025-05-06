@@ -27,5 +27,4 @@ public class Employee {
         return (getRegularHours() + getOvertimeHours()) * payRate;
     }
 
-
 }
