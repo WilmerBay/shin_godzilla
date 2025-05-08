@@ -1,50 +1,64 @@
 package Week5;
 
 public class Room {
-    private final int numberOfBeds;
-    private final double price;
+    private int nrOfBeds;
+    private double price;
     private boolean occupied;
     private boolean dirty;
 
-    public Room(int numberOfBeds, double price, boolean occupied, boolean dirty) {
-
-        this.numberOfBeds = numberOfBeds;
+    public Room(int nrOfBeds, double price, boolean occupied, boolean dirty) {
+        this.nrOfBeds = nrOfBeds;
         this.price = price;
         this.occupied = occupied;
         this.dirty = dirty;
     }
 
-    public int getNumberOfBeds() {
-        return numberOfBeds;
+    public int getNrOfBeds() {
+        return nrOfBeds;
+    }
+
+    public void setNrOfBeds(int nrOfBeds) {
+        this.nrOfBeds = nrOfBeds;
     }
 
     public double getPrice() {
         return price;
     }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public boolean isOccupied() {
         return occupied;
     }
 
-    public void isDirty(boolean dirtyRoom) {
+    public void setOccupied(boolean occupied) {
+        this.occupied = occupied;
+    }
+
+    public boolean isDirty() {
+        return dirty;
+    }
+
+    public void setDirty(boolean dirty) {
+        this.dirty = dirty;
     }
 
     public boolean isAvailable() {
-        return !occupied && !dirty;
-    }
-    public boolean checkIn() {
-
-        if (isAvailable()) {
-            occupied = true;
-            dirty = true;
-            return true;
-        }
-        return false;
+        return !isOccupied() && !isDirty();
     }
 
+    public void checkIn(){
+        setDirty(true);
+        setOccupied(true);
+    }
 
-    public void checkOut() {
-        isDirty(true);
-
+    public void checkOut(){
+        setOccupied(false);
+        cleanRoom();
+    }
+    public void cleanRoom(){
+        setDirty(false);
     }
 }
