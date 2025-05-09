@@ -9,7 +9,7 @@ class RoomTest {
 
     private Room room;
 
-    @BeforeEach
+    @BeforeEach // initiates creation of a room before evry test
     public void setUp() {
         room = new Room(2, 134.0, false, false);
     }
@@ -37,4 +37,20 @@ class RoomTest {
         assertFalse(room.isDirty(), "Room should be clean after cleaning");
     }
 
+    @Test
+    public void testIsAvailableWhenCleanAndUnoccupied() {
+        assertTrue(room.isAvailable(), "Room should be available when unoccupied and clean");
+    }
+
+    @Test
+    public void testIsAvailableReturnsFalseWhenDirty() {
+        room.setDirty(true);
+        assertFalse(room.isAvailable(), "Room should not be available when dirty");
+    }
+
+    @Test
+    public void testIsAvailableReturnsFalseWhenOccupied() {
+        room.setOccupied(true);
+        assertFalse(room.isAvailable(), "Room should not be available when occupied");
+    }
 }
