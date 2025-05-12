@@ -3,21 +3,54 @@ package CarDealerWorkshop;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DealerShip {
-    String name;
-    String address;
-    String phone;
+public class Dealership {
+    private String name;
+    private String address;
+    private String phone;
+    private List<Vehicle> inventory;
 
-    List<Vehicle> inventory = new ArrayList<>();
+    public Dealership(String name, String address, String phone) {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.inventory = new ArrayList<>();
+    }
 
+    public List<Vehicle> getAllVehicles() {
+        return inventory;
+    }
 
-    List<Vehicle> GetVehicleByPrice = new ArrayList<>(); // making new list for (min, max)
-    List<Vehicle> vehicleByMakeModel = new ArrayList<>();
-    List<Vehicle> vehicleByYear = new ArrayList<>();
-    List<Vehicle> vehicleByColor = new ArrayList<>();
-    List<Vehicle> vehicleByMileage = new ArrayList<>();
-    List<Vehicle> vehicleByType = new ArrayList<>(); // suv, truck, sedan, coupe, etc
-    get all vehicles() : List <Vehicle>
-    addVehicle(vehicle);
-    removeVehicle(vehicle);
+    public void addVehicle(Vehicle vehicle) {
+        inventory.add(vehicle);
+    }
+
+    public void removeVehicle(Vehicle vehicle) {
+        inventory.remove(vehicle);
+    }
+
+    // Search methods — implement these later
+    public List<Vehicle> getVehiclesByPrice(double min, double max) {
+        return null;
+    }
+
+    public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        return null;
+    }
+
+    public List<Vehicle> getVehiclesByYear(int minYear, int maxYear) {
+        return null;
+    }
+
+    public List<Vehicle> getVehiclesByColor(String color) {
+        return null;
+    }
+
+    public List<Vehicle> getVehiclesByMileage(int minMileage, int maxMileage) {
+        return null;
+    }
+
+    public List<Vehicle> getVehiclesByType(String type) {
+        return null;
+    }
 }
+

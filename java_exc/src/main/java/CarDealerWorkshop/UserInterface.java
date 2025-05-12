@@ -1,20 +1,16 @@
 package CarDealerWorkshop;
 
+import java.util.List;
+
 public class UserInterface {
 
-    dealership : DealerShip
-
-        userinterface()
-        display ()
-        processGetByPriceRequest()
-        processGetByMakeModelRequest()
-        processGetByYearRequest()
-        processGetColorRequest()
-        processGetmileageRequest()
-        processGetVehicleTypeRequest()
-        processGetAllVehicleRequest()
-        processGetAddVehicleRequest()
-        processGetRemoveVehicleRequest()
-
-
+    // Other process methods to be implemented:
+    public void processGetByPriceRequest() {}
+    public void processGetByMakeModelRequest() {}
+    public void processGetByYearRequest() {}
+    public void processGetColorRequest() {}
+    public void processGetMileageRequest() {}
+    public void processGetVehicleTypeRequest() {}
+    public void processGetAddVehicleRequest() {}
+    public void processGetRemoveVehicleRequest() {}
 }
