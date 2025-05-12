@@ -2,20 +2,31 @@ package CarDealerWorkshop;
 
 public class Vehicle {
 
-    private int vin;
+    private String vin;
     private int year;
     private String make;
     private String model;
     private String type; //car truck etc
     private String color;
-    private  int odometer;
+    private double odometer;
     private double price;
 
-    public int getVin() {
+    public Vehicle(String vin, int year, String make, String model, String type, String color, double odometer, double price) {
+        this.vin = vin;
+        this.year = year;
+        this.make = make;
+        this.model = model;
+        this.type = type;
+        this.color = color;
+        this.odometer = odometer;
+        this.price = price;
+    }
+
+    public String getVin() {
         return vin;
     }
 
-    public void setVin(int vin) {
+    public void setVin(String vin) {
         this.vin = vin;
     }
 
@@ -59,11 +70,11 @@ public class Vehicle {
         this.color = color;
     }
 
-    public int getOdometer() {
+    public double getOdometer() {
         return odometer;
     }
 
-    public void setOdometer(int odometer) {
+    public void setOdometer(double odometer) {
         this.odometer = odometer;
     }
 
