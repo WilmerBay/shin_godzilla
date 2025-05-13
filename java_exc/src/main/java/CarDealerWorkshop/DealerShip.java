@@ -7,13 +7,12 @@ public class Dealership {
     private String name;
     private String address;
     private String phone;
-    private List<Vehicle> inventory;
+    private List<Vehicle> inventory = new ArrayList<>();
 
     public Dealership(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.inventory = new ArrayList<>();
     }
 
     public List<Vehicle> getAllVehicles() {

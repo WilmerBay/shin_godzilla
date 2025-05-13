@@ -19,6 +19,30 @@ public class Vehicle {
     protected double fuelCapacity;
     protected double speedometer;
 
+    public Vehicle(String vinNumber, String licensePlate, String licenseType, int speed,
+                   int capacity, String fuelType, String make, String model, double weight,
+                   boolean hasGPS, boolean engineType, int maxCapacity, String color,
+                   String terrain, double fuelCapacity, double speedometer) {
+
+        this.vinNumber = vinNumber;
+        this.licensePlate = licensePlate;
+        this.licenseType = licenseType;
+        this.speed = speed;
+        this.capacity = capacity;
+        this.fuelType = fuelType;
+        this.make = make;
+        this.model = model;
+        this.weight = weight;
+        this.hasGPS = hasGPS;
+        this.engineType = engineType;
+        this.maxCapacity = maxCapacity;
+        this.color = color;
+        this.terrain = terrain;
+        this.fuelCapacity = fuelCapacity;
+        this.speedometer = speedometer;
+
+    }
+
     public Vehicle() {
 
     }
