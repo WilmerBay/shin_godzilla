@@ -1,17 +1,15 @@
 package AssetManager;
 
-public class House2 {
+    public class House extends Asset {
 
-    public static class House extends Asset {
         private String address;
         private int condition;
         private int squareFoot;
         private int lotSize;
 
-        public House(String description, String dateAcquired, double originalCost, String address, int condition, int squareFoot, int lotSize) {
-
-            super(description, dateAcquired, originalCost);
-
+        public House(String description, String dateAcquired, double originalCost,
+                     String address, int condition, int squareFoot, int lotSize) {
+            super(description, dateAcquired, originalCost);  // Calls Asset constructor
             this.address = address;
             this.condition = condition;
             this.squareFoot = squareFoot;
@@ -53,7 +51,6 @@ public class House2 {
         public double getValue() {
 
             double ratePerSquareFoot;
-
             switch (condition) {
                 case 1 -> ratePerSquareFoot = 180.0;
                 case 2 -> ratePerSquareFoot = 130.0;
@@ -65,4 +62,3 @@ public class House2 {
         }
     }
 
-}
