@@ -31,7 +31,7 @@ public class Main {
                 "2018-09-30",
                 480000.00,
                 "17 Blossom Way, Blossom City, CA",
-                1,
+                3,
                 2200,
                 6000
         );
@@ -41,7 +41,7 @@ public class Main {
                 "2020-07-15",
                 320000.00,
                 "30 Cilantro Ave, San Francisco, CA",
-                3,
+                1,
                 1800,
                 4000
         );
@@ -50,5 +50,21 @@ public class Main {
         myAssets.add(house1);
         myAssets.add(house2);
 
+        for (Asset asset : myAssets) {
+            System.out.println("====================================");
+            System.out.println("Description: " + asset.getDescription());
+            System.out.println("Date Acquired: " + asset.getDateAcquired());
+            System.out.printf("Original Cost: $%.2f%n", asset.getOriginalCost());
+            System.out.printf("Current Value: $%.2f%n", asset.getValue());
+
+            if (asset instanceof Vehicle ve) {
+                Vehicle v = (Vehicle) asset;
+                System.out.println("Vehicle: " + v.getYear() + " " + v.getMakeModel());
+            } else if (asset instanceof House) {
+                House h = (House) asset;
+                System.out.println("House Address: " + h.getAddress());
+            }
+            System.out.println("====================================\n");
+        }
     }
 }

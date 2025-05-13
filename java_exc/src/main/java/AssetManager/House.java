@@ -7,8 +7,8 @@ package AssetManager;
         private int squareFoot;
         private int lotSize;
 
-        public House(String description, String dateAcquired, double originalCost,
-                     String address, int condition, int squareFoot, int lotSize) {
+        public House(String description, String dateAcquired, double originalCost, String address, int condition, int squareFoot, int lotSize) {
+
             super(description, dateAcquired, originalCost);  // Calls Asset constructor
             this.address = address;
             this.condition = condition;
