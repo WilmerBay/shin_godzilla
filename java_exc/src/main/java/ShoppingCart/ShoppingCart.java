@@ -33,5 +33,6 @@ public class ShoppingCart {
         System.out.printf("%nSubtotal: $%.2f%n", totalBeforeTax);
         System.out.printf("Tax (21%%): $%.2f%n", tax);
         System.out.printf("Total: $%.2f%n", totalAfterTax);
+        System.out.println("this is a test for the new branch created");
     }
 }
