@@ -5,13 +5,15 @@ import java.util.Scanner;
 
 public class UserInterface {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     private Dealership dealership;
 
     public void display() {
 
         displayWelcomeMessage();
         initializeDealership();
-        Scanner scanner = new Scanner(System.in);
+
         boolean running = true;
 
         while (running) {
@@ -53,19 +55,20 @@ public class UserInterface {
 
     private void initializeDealership() {
 
-        dealership = dealership = new Dealership("Locked & Loaded Motors", "1 Prison Road, Alcatraz Island, CA 94133", "415-252-8729");
+        dealership = new Dealership("Locked & Loaded Motors", "1 Prison Road, Alcatraz Island, CA 94133", "415-252-8729");
 
-        dealership.addVehicle(new Vehicle("VIN1112", 2015, "Toyota", "Camry", "Car", "Black", 85000, 10995));
+        //Sedans
+        dealership.addVehicle(new Vehicle("VIN1112", 2015, "Toyota", "Camry", "Sedan", "Red", 85000, 10995));
+        dealership.addVehicle(new Vehicle("VIN1011", 2015, "Toyota", "Camry", "Sedan", "Beige", 85000, 10995));
+        dealership.addVehicle(new Vehicle("VIN2015", 2015, "Volkswagen", "GLI", "Sedan", "Charcoal", 80000, 13000));
+        //Coupes
+        dealership.addVehicle(new Vehicle("VIN2020", 2020, "Toyota", "GR Supra", "Coupe", "Grey", 100000, 45000));
+        dealership.addVehicle(new Vehicle("VIN2018", 2018, "Mazda", "Miata MX5", "Coupe", "Red", 30000, 22000));
+        //SUVs
         dealership.addVehicle(new Vehicle("VIN3746", 2019, "Honda", "CR-V", "SUV", "White", 55000, 16995));
-        dealership.addVehicle(new Vehicle("VIN1011", 2015, "Toyota", "Camry", "Car", "Black", 85000, 10995));
-        dealership.addVehicle(new Vehicle("VIN1012", 2019, "Honda", "CR-V", "SUV", "White", 55000, 16995));
-        dealership.addVehicle(new Vehicle("VIN2020", 2020, "Toyota", "Supra", "Car", "Grey", 100000, 45000));
-        dealership.addVehicle(new Vehicle("VIN2015", 2015, "Volkswagen", "GLI", "Car", "Charcoal", 80000, 13000));
-        dealership.addVehicle(new Vehicle("VIN2018", 2018, "Mazda", "Miata MX5", "Car", "Candy Red", 30000, 22000));
-        // SUVs
         dealership.addVehicle(new Vehicle("VINSUV1", 2018, "Ford", "Explorer", "SUV", "Blue", 90000, 21000));
         dealership.addVehicle(new Vehicle("VINSUV2", 2021, "Toyota", "RAV4", "SUV", "Silver", 45000, 27500));
-        // Trucks
+        //Trucks
         dealership.addVehicle(new Vehicle("VINTRK1", 2016, "Chevrolet", "Silverado 1500", "Truck", "Red", 120000, 18000));
         dealership.addVehicle(new Vehicle("VINTRK2", 2022, "Ram", "1500 Big Horn", "Truck", "Black", 20000, 35000));
     }
@@ -90,27 +93,24 @@ public class UserInterface {
             System.out.println("No vehicles found.");
             return;
         }
-        for (Vehicle v : vehicles) {
-            System.out.println(v);
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle);
         }
     }
 
     public void processGetByPriceRequest() {
 
-        Scanner scanner = new Scanner(System.in);
-
         System.out.print("Enter minimum price: ");
-        double minPrice = readDouble(scanner);
+        double minPrice = readDouble();
 
         System.out.print("Enter maximum price: ");
-        double maxPrice = readDouble(scanner);
+        double maxPrice = readDouble();
 
         List<Vehicle> vehicles = dealership.getVehiclesByPrice(minPrice, maxPrice);
         displayVehicles(vehicles);
     }
 
-    private double readDouble(Scanner scanner) {
-
+    private double readDouble() {
         while (true) {
             String input = scanner.nextLine().trim();
             try {
@@ -121,8 +121,6 @@ public class UserInterface {
         }
     }
     public void processGetByMakeModelRequest() {
-
-        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter vehicle make: ");
         String make = scanner.nextLine().trim();
@@ -135,42 +133,99 @@ public class UserInterface {
     }
     public void processGetByYearRequest() {
 
-        Scanner scanner = new Scanner(System.in);
-
         System.out.print("Enter minimum year: ");
-        int minYear = readInt(scanner);
+        int minYear = readInt();
 
         System.out.print("Enter maximum year: ");
-        int maxYear = readInt(scanner);
+        int maxYear = readInt();
 
         List<Vehicle> vehicles = dealership.getVehiclesByYear(minYear, maxYear);
         displayVehicles(vehicles);
     }
 
-    private int readInt(Scanner scanner) {
-
+    private int readInt() {
         while (true) {
             String input = scanner.nextLine().trim();
             try {
                 return Integer.parseInt(input);
             } catch (NumberFormatException e) {
-                System.out.print("Invalid input. Please enter a valid integer: ");
+                System.out.print("Invalid input. Please enter a valid whole number: ");
             }
         }
     }
     public void processGetColorRequest() {
+        System.out.print("Enter vehicle color: ");
+        String color = scanner.nextLine().trim();
 
+        List<Vehicle> vehicles = dealership.getVehiclesByColor(color);
+        displayVehicles(vehicles);
     }
     public void processGetMileageRequest() {
+        System.out.print("Enter minimum mileage: ");
+        int minMileage = readInt();
 
+        System.out.print("Enter maximum mileage: ");
+        int maxMileage = readInt();
+
+        List<Vehicle> vehicles = dealership.getVehiclesByMileage(minMileage, maxMileage);
+        displayVehicles(vehicles);
     }
+
     public void processGetVehicleTypeRequest() {
+        System.out.print("Enter vehicle type (Car, SUV, Truck, etc.): ");
+        String type = scanner.nextLine().trim();
 
+        List<Vehicle> vehicles = dealership.getVehiclesByType(type);
+        displayVehicles(vehicles);
     }
+
     public void processGetAddVehicleRequest() {
 
+        System.out.print("Enter VIN: ");
+        String vin = scanner.nextLine().trim();
+
+        System.out.print("Enter year: ");
+        int year = readInt();
+
+        System.out.print("Enter make: ");
+        String make = scanner.nextLine().trim();
+
+        System.out.print("Enter model: ");
+        String model = scanner.nextLine().trim();
+
+        System.out.print("Enter type: ");
+        String type = scanner.nextLine().trim();
+
+        System.out.print("Enter color: ");
+        String color = scanner.nextLine().trim();
+
+        System.out.print("Enter odometer: ");
+        double odometer = readDouble();
+
+        System.out.print("Enter price: ");
+        double price = readDouble();
+
+        Vehicle vehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
+        dealership.addVehicle(vehicle);
+        System.out.println("\nVehicle added successfully!");
     }
     public void processGetRemoveVehicleRequest() {
+        System.out.print("Enter VIN of vehicle to remove: ");
+        String vin = scanner.nextLine().trim();
 
+        Vehicle remove = null;
+        for (Vehicle v : dealership.getAllVehicles()) {
+            if (v.getVin().equalsIgnoreCase(vin)) {
+                remove = v;
+                break;
+            }
+        }
+
+        if (remove != null) {
+            dealership.removeVehicle(remove);
+            System.out.println("\nVehicle removed successfully!");
+        } else {
+            System.out.println("Vehicle not found.");
+        }
     }
 }
