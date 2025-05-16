@@ -27,9 +27,14 @@ public class Dealership {
         inventory.remove(vehicle);
     }
 
-    // Search methods — implement these later
     public List<Vehicle> getVehiclesByPrice(double min, double max) {
-        return null;
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory) {
+            if (v.getPrice() >= min && v.getPrice() <= max) {
+                result.add(v);
+            }
+        }
+        return result;
     }
 
     public List<Vehicle> getVehiclesByMakeModel(String make, String model) {

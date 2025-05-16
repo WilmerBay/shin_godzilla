@@ -1,5 +1,7 @@
 package Generics;
 
+import OOP2.Car;
+
 public class Main {
 
     public static void main(String[] args) {
