@@ -52,6 +52,7 @@ public class UserInterface {
     }
 
     private void initializeDealership() {
+
         dealership = dealership = new Dealership("Locked & Loaded Motors", "1 Prison Road, Alcatraz Island, CA 94133", "415-252-8729");
 
         dealership.addVehicle(new Vehicle("VIN1112", 2015, "Toyota", "Camry", "Car", "Black", 85000, 10995));
@@ -70,6 +71,7 @@ public class UserInterface {
     }
 
     private void displayWelcomeMessage() {
+
         System.out.println("\nWelcome to Locked & Loaded Motors,");
         System.out.println("where you can’t solitary conFIND better deals!");
         System.out.println("You won't find great deals locked away!");
@@ -77,11 +79,13 @@ public class UserInterface {
     }
 
     private void processGetAllVehiclesRequest() {
+
         List<Vehicle> vehicles = dealership.getAllVehicles();
         displayVehicles(vehicles);
     }
 
     private void displayVehicles(List<Vehicle> vehicles) {
+
         if (vehicles.isEmpty()) {
             System.out.println("No vehicles found.");
             return;
@@ -93,12 +97,66 @@ public class UserInterface {
 
     public void processGetByPriceRequest() {
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter minimum price: ");
+        double minPrice = readDouble(scanner);
+
+        System.out.print("Enter maximum price: ");
+        double maxPrice = readDouble(scanner);
+
+        List<Vehicle> vehicles = dealership.getVehiclesByPrice(minPrice, maxPrice);
+        displayVehicles(vehicles);
+    }
+
+    private double readDouble(Scanner scanner) {
+
+        while (true) {
+            String input = scanner.nextLine().trim();
+            try {
+                return Double.parseDouble(input);
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Please enter a valid number: ");
+            }
+        }
     }
     public void processGetByMakeModelRequest() {
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter vehicle make: ");
+        String make = scanner.nextLine().trim();
+
+        System.out.print("Enter vehicle model: ");
+        String model = scanner.nextLine().trim();
+
+        List<Vehicle> vehicles = dealership.getVehiclesByMakeModel(make, model);
+        displayVehicles(vehicles);
     }
     public void processGetByYearRequest() {
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter minimum year: ");
+        int minYear = readInt(scanner);
+
+        System.out.print("Enter maximum year: ");
+        int maxYear = readInt(scanner);
+
+        List<Vehicle> vehicles = dealership.getVehiclesByYear(minYear, maxYear);
+        displayVehicles(vehicles);
+    }
+
+    private int readInt(Scanner scanner) {
+
+        while (true) {
+            String input = scanner.nextLine().trim();
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Please enter a valid integer: ");
+            }
+        }
     }
     public void processGetColorRequest() {
 
