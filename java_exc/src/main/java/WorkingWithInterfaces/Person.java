@@ -39,7 +39,13 @@ public class Person implements Comparable<Person> {
 
     @Override
     public int compareTo(Person other) {
-        return this.lastName.compareToIgnoreCase(other.lastName);
+        int lastCmp = this.lastName.compareToIgnoreCase(other.lastName);
+        if (lastCmp != 0) return lastCmp;
+
+        int firstCmp = this.firstName.compareToIgnoreCase(other.firstName);
+        if (firstCmp != 0) return firstCmp;
+
+        return Integer.compare(this.age, other.age);
     }
 
     @Override
