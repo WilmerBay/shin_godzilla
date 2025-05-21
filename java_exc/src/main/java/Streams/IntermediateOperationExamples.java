@@ -8,10 +8,10 @@ public class IntermediateOperationExamples {
 
     public static void main(String[] args) {
 
-        List<String> words = Arrays.asList("beep", "boo", "bop", "bu", "buu", "bap", "beeep", "hippopotamus");
+        List<String> words = Arrays.asList("beep", "boo", "bop", "bu", "buu", "bap", "beeep", "hippopotamus", "letter", "suavemente");
 
         List<String> result = words.stream() // convert to stream
-                .filter(word -> word.length() <= 6) // filter 6 or more characters
+                .filter(word -> word.length() >= 6) // filter 6 or more characters
                 .map(String::toUpperCase)                 // To uppercase
                 .toList();            // Collect new list. converted to toList();
 
