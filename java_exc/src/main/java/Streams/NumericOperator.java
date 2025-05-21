@@ -1,7 +1,10 @@
 package Streams;
 
 @FunctionalInterface
-public interface NumericOp {
+public interface NumericOperator {
 
     int operate(int a, int b);
 }
+
+
+
