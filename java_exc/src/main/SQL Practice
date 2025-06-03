@@ -1,0 +1,61 @@
+🧮 7 Exercises Using HAVING
+
+Which products have been ordered more than 200 times in total?
+
+-SELECT ProductID, SUM(Quantity) AS TotalOrdered
+ FROM `Order Details`
+ GROUP BY ProductID
+ HAVING SUM(Quantity) > 200;
+ 72 rows returned
+
+
+Which customers have placed more than 10 orders?
+
+-SELECT CustomerID, COUNT(OrderID) AS OrderCount
+ FROM Orders
+ GROUP BY CustomerID
+ HAVING COUNT(OrderID) > 10;
+ 28 rows returned
+
+List suppliers who supply more than 5 products.
+
+-SELECT SupplierID, COUNT(ProductID) AS ProductCount
+ FROM Products
+ GROUP BY SupplierID
+ HAVING COUNT(ProductID) > 5;
+ there are 2 that have 5 products but none go over 5
+
+Find categories that contain at least one product with an average unit price above 40.
+
+-SELECT CategoryID, AVG(UnitPrice) AS AvgPrice
+ FROM Products
+ GROUP BY CategoryID
+ HAVING AVG(UnitPrice) > 40;
+ 1 item (ID6) averages around 54 per unit
+
+List order IDs where the total quantity ordered exceeds 100.
+
+-SELECT OrderID, SUM(Quantity) AS TotalQuantity
+ FROM `Order Details`
+ GROUP BY OrderID
+ HAVING SUM(Quantity) > 100;
+ 140 rows returned with exceeding orders past 100
+
+Find all customers whose average order quantity is less than 20.
+-SELECT CustomerID
+ FROM Orders
+ WHERE OrderID IN (
+   SELECT OrderID
+   FROM `Order Details`
+   GROUP BY OrderID
+   HAVING AVG(Quantity) < 20
+ );
+401 rows returnedbut i need to verify that the information is correct.
+
+Which products have an average ordered quantity between 20 and 40?
+
+-SELECT ProductID, AVG(Quantity) AS AvgQuantity
+ FROM `Order Details`
+ GROUP BY ProductID
+ HAVING AVG(Quantity) BETWEEN 20 AND 40;
+63 rows returned all of which are on average inbetween 20-40 price
