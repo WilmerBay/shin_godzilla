@@ -1,0 +1,155 @@
+✅ SQL Concepts Covered
+SELECT, WHERE, ORDER BY, LIMIT, DISTINCT
+LIKE, BETWEEN, IN, NOT IN
+GROUP BY, HAVING
+Aggregate functions: SUM, COUNT, MIN, MAX, AVG
+Subqueries: single and multi-level
+
+🟢 Level 1: Basics (1–10)
+
+1 List all products that cost more than 50.
+-   SELECT * FROM Products
+    WHERE UnitPrice > 50;
+    7 rows returned
+
+2 Show all customers whose company name starts with "B".
+-   SELECT * FROM Customers
+    WHERE CompanyName LIKE 'B%';
+    7 rows returned
+
+3 Display the first 5 products sorted by unit price descending.
+-   SELECT * FROM Products
+    ORDER BY UnitPrice DESC
+    LIMIT 5;
+    5 Rows returned
+
+4 Find all products with units in stock between 10 and 20.
+-   SELECT * FROM Products
+    WHERE UnitsInStock BETWEEN 10 AND 20;
+    17 rows returned
+
+5 Show customers located in Mexico.
+-   SELECT * FROM Customers
+    WHERE Country = 'Mexico';
+    5 rows returned
+
+6 Get all product names that contain the word "cheese".
+-   SELECT ProductName FROM Products
+    WHERE ProductName LIKE '%cheese%';
+    nothing was retunred checeks manually and did not find cheese for product name
+
+7 Find all orders with OrderID greater than 10250.
+-   SELECT * FROM Orders
+    WHERE OrderID > 10250;
+    827 rows returned
+
+8 List all products with exactly 0 units on order.
+-   SELECT * FROM Products
+    WHERE UnitsOnOrder = 0;
+    60 rows returned
+
+9 Show the 3 most recent orders (based on OrderDate).
+-   SELECT * FROM Orders
+    ORDER BY OrderDate DESC
+    LIMIT 3;
+    three rows returned. all matching 5-6-1998 as the newest order
+
+10 Show all products where the product name ends in 's'.
+-   SELECT * FROM Products
+    WHERE ProductName LIKE '%s';
+    9 rows all ending in s
+
+
+
+🟡 Level 2: Filtering & Aggregation (11–20)
+
+Count how many customers are in the database.
+
+Find the average unit price of all products.
+
+Show the maximum quantity ever ordered (from Order Details).
+
+Find all products where UnitPrice is less than the average UnitPrice.
+
+List product IDs that appear more than 3 times in Order Details.
+
+Show products that have been ordered at least once.
+
+Show the product with the minimum units in stock.
+
+Find all product names with UnitPrice equal to the highest price.
+
+Find all customers whose CustomerID contains the letter "A".
+
+List all unique cities from the Customers table.
+
+🟠 Level 3: GROUP BY (21–30)
+
+Count how many products each supplier supplies.
+
+Show the total quantity ordered per product.
+
+Find the number of orders per customer.
+
+List categories with more than 5 products.
+
+Show the average unit price per category.
+
+Count how many orders there are per year.
+
+List the total quantity per OrderID where the quantity > 30.
+
+List suppliers where the average product price is under 20.
+
+Show the total number of units in stock per category.
+
+Show how many products each product name appears with (hint: GROUP BY ProductName).
+
+
+🔵 Level 4: HAVING (31–37)
+
+Find products that have been ordered more than 200 units in total.
+
+Find customers who placed more than 5 orders.
+
+Find categories where the average price is greater than 40.
+
+Find suppliers who supply fewer than 3 products.
+
+List orders with more than 5 items in them.
+
+Show all products that have an average quantity per order > 30.
+
+Find customers whose average order quantity is under 20.
+
+
+🟣 Level 5: Single-Level Subqueries (38–44)
+
+Show the name of the most expensive product.
+
+Find all products with a unit price equal to the average.
+
+Show customers who placed the most recent order.
+
+List all products that have never been ordered.
+
+Show products that cost more than any product in category 2.
+
+Show orders that were placed after the most recent order from CustomerID "ALFKI".
+
+Show all products with units in stock equal to the minimum.
+
+
+🔴 Level 6: Nested Subqueries (45–50)
+
+Find product names ordered in the order with the highest total quantity.
+
+Find customers who have only placed one order.
+
+Find the average unit price of products ordered by customers from Brazil.
+
+Find the name of the customer who ordered the most quantity.
+
+Show the product name of the most frequently ordered product.
+
+Show the customer with the highest average quantity per product ordered.

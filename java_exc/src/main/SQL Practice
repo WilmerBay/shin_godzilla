@@ -50,7 +50,7 @@ Find all customers whose average order quantity is less than 20.
    GROUP BY OrderID
    HAVING AVG(Quantity) < 20
  );
-401 rows returnedbut i need to verify that the information is correct.
+401 rows returned but i need to verify that the information is correct.
 
 Which products have an average ordered quantity between 20 and 40?
 
