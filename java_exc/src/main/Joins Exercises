@@ -57,3 +57,70 @@
     FROM Orders
     JOIN Customers ON Orders.CustomerID = Customers.CustomerID
     WHERE Customers.Country = 'Germany';
+
+12. Show all order details for products with unit price above 50
+-   SELECT `Order Details`.OrderID, Products.ProductName, Products.UnitPrice, `Order Details`.Quantity
+    FROM `Order Details`
+    JOIN Products ON `Order Details`.ProductID = Products.ProductID
+    WHERE Products.UnitPrice > 50;
+
+13. Find products from suppliers in the USA
+-   SELECT Products.ProductName, Suppliers.CompanyName, Suppliers.Country
+    FROM Products
+    JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID
+    WHERE Suppliers.Country = 'USA';
+
+14. List all orders that include the product "Chai"
+-   SELECT DISTINCT Orders.OrderID
+    FROM Orders
+    JOIN `Order Details` ON Orders.OrderID = `Order Details`.OrderID
+    JOIN Products ON `Order Details`.ProductID = Products.ProductID
+    WHERE Products.ProductName = 'Chai';
+
+15. Find customers who ordered products in the "Beverages" category
+-   SELECT DISTINCT Customers.CompanyName
+    FROM Customers
+    JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+    JOIN `Order Details` ON Orders.OrderID = `Order Details`.OrderID
+    JOIN Products ON `Order Details`.ProductID = Products.ProductID
+    JOIN Categories ON Products.CategoryID = Categories.CategoryID
+    WHERE Categories.CategoryName = 'Beverages';
+
+16. Show total quantity ordered per product
+-   SELECT Products.ProductName, SUM(`Order Details`.Quantity) AS TotalQuantity
+    FROM Products
+    JOIN `Order Details` ON Products.ProductID = `Order Details`.ProductID
+    GROUP BY Products.ProductID;
+
+17. Find how many orders each customer has placed
+-   SELECT Customers.CompanyName, COUNT(Orders.OrderID) AS OrderCount
+    FROM Customers
+    JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+    GROUP BY Customers.CustomerID;
+
+18. List the number of products supplied by each supplier
+-   SELECT Suppliers.CompanyName, COUNT(Products.ProductID) AS ProductCount
+    FROM Suppliers
+    JOIN Products ON Suppliers.SupplierID = Products.SupplierID
+    GROUP BY Suppliers.SupplierID;
+
+19. For each category, show the average unit price of its products
+-   SELECT Categories.CategoryName, AVG(Products.UnitPrice) AS AveragePrice
+    FROM Categories
+    JOIN Products ON Categories.CategoryID = Products.CategoryID
+    GROUP BY Categories.CategoryID;
+
+20. Show the total quantity of items ordered per customer
+-   SELECT Customers.CompanyName, SUM(`Order Details`.Quantity) AS TotalQuantity
+    FROM Customers
+    JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+    JOIN `Order Details` ON Orders.OrderID = `Order Details`.OrderID
+    GROUP BY Customers.CustomerID;
+
+21. List customers who ordered more than 300 total items
+-   SELECT Customers.CompanyName, SUM(`Order Details`.Quantity) AS TotalQuantity
+    FROM Customers
+    JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+    JOIN `Order Details` ON Orders.OrderID = `Order Details`.OrderID
+    GROUP BY Customers.CustomerID
+    HAVING SUM(`Order Details`.Quantity) > 300;
