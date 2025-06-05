@@ -1,0 +1,38 @@
+1) Add a new Supplier
+
+INSERT INTO Suppliers (CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone)
+VALUES ('Big Wigs Company', 'Sarah Farris', 'Marketing Director', '123 Farris ln', 'Salem', 'OR', '9', 'USA', '415-123-4567');
+
+2) Add a new product provided by that supplier
+
+INSERT INTO Products (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
+VALUES ('Black Wig', 30, 1, '10 count', 20.00, 100, 5, 10, 0);
+
+3) List all products and their suppliers
+SELECT Products.ProductName, Suppliers.CompanyName
+FROM Products
+JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID;
+
+4) Raise Price of the new product by 15%
+UPDATE Products
+SET UnitPrice = UnitPrice * 1.15
+WHERE ProductName = 'Black Wig';
+
+5) List the products and prices of all products from that supplier
+SELECT ProductName, UnitPrice
+FROM Products
+WHERE SupplierID = 30;
+
+6) Delete the new product
+DELETE FROM Products
+WHERE ProductName = 'Black Wig';
+
+7) Delete the new supplier
+DELETE FROM Suppliers
+WHERE CompanyName = 'Big Wigs Company';
+
+8) List all products
+SELECT * FROM Products;
+
+9) List all suppliers
+SELECT * FROM Suppliers;
