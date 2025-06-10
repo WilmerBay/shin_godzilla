@@ -13,6 +13,10 @@ SELECT Products.ProductName, Suppliers.CompanyName
 FROM Products
 JOIN Suppliers ON Products.SupplierID = Suppliers.SupplierID;
 
+SELECT Products.ProductName, Products.SupplierID, Suppliers.SupplierID, Suppliers.CompanyName
+FROM northwind.Products
+JOIN Suppliers.SupplierID ON Products.SupplierID = Suppliers.SupplierID;
+
 4) Raise Price of the new product by 15%
 UPDATE Products
 SET UnitPrice = UnitPrice * 1.15
